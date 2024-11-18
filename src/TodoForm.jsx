@@ -27,6 +27,3 @@ function TodoForm({ addTodo, toggleAllTodos }) {
 }
 
 export default TodoForm;
-
-
-export default TodoForm;

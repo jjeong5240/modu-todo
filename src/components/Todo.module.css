@@ -1,0 +1,24 @@
+
+.todoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: #f4f4f4;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.todoText {
+  flex: 1;
+  margin-right: 10px; 
+}
+
+.deleteButton {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.todoContainer:hover .deleteButton {
+  opacity: 1;
+}
