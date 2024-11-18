@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function TodoForm({ addTodo }) {
+function TodoForm({ addTodo, toggleAllTodos }) {
   const [value, setValue] = useState('');
 
   const handleSubmit = e => {
@@ -19,8 +19,14 @@ function TodoForm({ addTodo }) {
         placeholder="Add a new task"
       />
       <button type="submit">Add Todo</button>
+      <button type="button" onClick={toggleAllTodos} style={{ marginLeft: '10px' }}>
+        Toggle All
+      </button>
     </form>
   );
 }
+
+export default TodoForm;
+
 
 export default TodoForm;

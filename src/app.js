@@ -10,29 +10,22 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
-  const removeTodo = id => {
-    setTodos(todos.filter(todo => todo.id !== id));
-  };
-
-  const toggleTodo = id => {
-    setTodos(todos.map(todo => {
-      if (todo.id === id) {
-        return { ...todo, isCompleted: !todo.isCompleted };
-      }
-      return todo;
-    }));
+  const toggleAllTodos = () => {
+    const areAllCompleted = todos.every(todo => todo.isCompleted);
+    setTodos(todos.map(todo => ({
+      ...todo,
+      isCompleted: !areAllCompleted
+    })));
   };
 
   return (
     <div>
       <h1>Todo List</h1>
-      <TodoForm addTodo={addTodo} />
+      <TodoForm addTodo={addTodo} toggleAllTodos={toggleAllTodos} />
       {todos.map(todo => (
         <Todo
           key={todo.id}
           todo={todo}
-          removeTodo={removeTodo}
-          toggleTodo={toggleTodo}
         />
       ))}
     </div>
@@ -40,6 +33,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
