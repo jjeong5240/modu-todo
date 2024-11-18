@@ -10,22 +10,24 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
-  const toggleAllTodos = () => {
-    const areAllCompleted = todos.every(todo => todo.isCompleted);
-    setTodos(todos.map(todo => ({
-      ...todo,
-      isCompleted: !areAllCompleted
-    })));
+  const toggleTodo = id => {
+    setTodos(
+      todos.map(todo =>
+        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+      )
+    );
   };
 
   return (
     <div>
       <h1>Todo List</h1>
-      <TodoForm addTodo={addTodo} toggleAllTodos={toggleAllTodos} />
+      <TodoForm addTodo={addTodo} />
       {todos.map(todo => (
         <Todo
           key={todo.id}
           todo={todo}
+          toggleTodo={toggleTodo}
+          removeTodo={() => {}}
         />
       ))}
     </div>
@@ -33,6 +35,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
