@@ -4,8 +4,8 @@ import Todo from './Todo';
 import './App.css';
 
 function App() {
-  const [todos, setTodos] = useState([]); // 할 일 목록 상태
-  const [filter, setFilter] = useState('all'); // 필터 상태 ('all', 'completed', 'active')
+  const [todos, setTodos] = useState([]); 
+  const [filter, setFilter] = useState('all'); 
 
   const addTodo = (e) => {
     if (e.key === 'Enter' && e.target.value.trim() !== '') {
@@ -15,7 +15,7 @@ function App() {
         isCompleted: false,
       };
       setTodos([...todos, newTodo]);
-      e.target.value = ''; // 입력창 초기화
+      e.target.value = ''; 
     }
   };
 
@@ -38,7 +38,7 @@ function App() {
   const filteredTodos = todos.filter((todo) => {
     if (filter === 'completed') return todo.isCompleted;
     if (filter === 'active') return !todo.isCompleted;
-    return true; // 'all'
+    return true; 
   });
 
   return (
@@ -49,7 +49,7 @@ function App() {
           type="text"
           className="todo-input"
           placeholder="What needs to be done?"
-          onKeyPress={addTodo} // Enter 키 이벤트
+          onKeyPress={addTodo} 
         />
       </div>
 
